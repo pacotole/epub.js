@@ -87,7 +87,7 @@ EPUBJS.Parser.prototype.metadata = function(xml){
 	metadata.rights = p.getElementText(xml, "rights");
 	
 	metadata.modified_date = p.querySelectorText(xml, "meta[property='dcterms:modified']");
-	metadata.layout = p.querySelectorText(xml, "meta[property='rendition:orientation']");
+	metadata.layout = p.querySelectorText(xml, "meta[property='rendition:layout']");
 	metadata.orientation = p.querySelectorText(xml, "meta[property='rendition:orientation']");
 	metadata.spread = p.querySelectorText(xml, "meta[property='rendition:spread']");
 	// metadata.page_prog_dir = packageXml.querySelector("spine").getAttribute("page-progression-direction");

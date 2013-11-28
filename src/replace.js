@@ -12,7 +12,7 @@ EPUBJS.replace.head = function(callback, renderer) {
 EPUBJS.replace.resources = function(callback, renderer){
 	//srcs = this.doc.querySelectorAll('[src]');
 	renderer.replaceWithStored("[src]", "src", EPUBJS.replace.srcs, callback);
-	
+
 };
 
 EPUBJS.replace.svg = function(callback, renderer) {
@@ -26,12 +26,12 @@ EPUBJS.replace.svg = function(callback, renderer) {
 EPUBJS.replace.srcs = function(_store, full, done){
 
 	_store.getUrl(full).then(done);
-	
+
 };
 
 //-- Replaces links in head, such as stylesheets - link[href]
 EPUBJS.replace.links = function(_store, full, done, link){
-	
+
 	//-- Handle replacing urls in CSS
 	if(link.getAttribute("rel") === "stylesheet") {
 		EPUBJS.replace.stylesheets(_store, full).then(done);
@@ -48,7 +48,7 @@ EPUBJS.replace.stylesheets = function(_store, full) {
 
 	_store.getText(full).then(function(text){
 		var url;
-	
+
 		EPUBJS.replace.cssUrls(_store, full, text).then(function(newText){
 			var _URL = window.URL || window.webkitURL || window.mozURL;
 
@@ -60,7 +60,7 @@ EPUBJS.replace.stylesheets = function(_store, full) {
 		}, function(e) {
 			console.error(e);
 		});
-		
+
 	});
 
 	return deferred.promise;
@@ -69,8 +69,8 @@ EPUBJS.replace.stylesheets = function(_store, full) {
 EPUBJS.replace.cssUrls = function(_store, base, text){
 	var deferred = new RSVP.defer(),
 		promises = [],
-		matches = text.match(/url\(\'?\"?([^\'|^\"]*)\'?\"?\)/g);
-	
+		matches = text.match(/url\(\'?\"?([^\'|^\"|^\)]*)\'?\"?\)/g);
+
 	if(!_store) return;
 
 	if(!matches){
@@ -85,13 +85,13 @@ EPUBJS.replace.cssUrls = function(_store, base, text){
 		}, function(e) {
 			console.error(e);
 		});
-		
+
 		promises.push(replaced);
 	});
-	
+
 	RSVP.all(promises).then(function(){
 		deferred.resolve(text);
 	});
-	
+
 	return deferred.promise;
 };

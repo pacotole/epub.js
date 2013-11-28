@@ -7,8 +7,8 @@
  1. Redistributions of source code must retain the above copyright notice,
  this list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright 
- notice, this list of conditions and the following disclaimer in 
+ 2. Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in
  the documentation and/or other materials provided with the distribution.
 
  3. The names of the authors may not be used to endorse or promote products
@@ -618,10 +618,8 @@
 			"x-font-bdf" : "bdf",
 			"x-font-ghostscript" : "gsf",
 			"x-font-linux-psf" : "psf",
-			"x-font-otf" : "otf",
 			"x-font-pcf" : "pcf",
 			"x-font-snf" : "snf",
-			"x-font-ttf" : [ "ttf", "ttc" ],
 			"x-font-type1" : [ "pfa", "pfb", "pfm", "afm" ],
 			"x-font-woff" : "woff",
 			"x-freearc" : "arc",
@@ -778,6 +776,10 @@
 			"x-xtel" : "xtel",
 			"x-xyz" : "xyz"
 		},
+		"font" : {
+			"opentype" : "otf",
+			"truetype" : ["ttf", "ttc"]
+		},
 		"image" : {
 			"gif" : "gif",
 			"ief" : "ief",
@@ -835,7 +837,7 @@
 			"x-pict" : [ "pic", "pct" ],
 			"x-tga" : "tga",
 			"cis-cod" : "cod",
-			"pipeg" : "jfif",			
+			"pipeg" : "jfif"
 		},
 		"message" : {
 			"rfc822" : [ "eml", "mime", "mht", "mhtml", "nws" ]
