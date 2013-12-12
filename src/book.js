@@ -237,6 +237,10 @@ EPUBJS.Book.prototype.getToc = function() {
 	return this.ready.toc.promise;
 };
 
+EPUBJS.Book.prototype.getSpine = function() {
+	return this.ready.spine.promise;
+};
+
 /* Private Helpers */
 
 //-- Listeners for browser events
